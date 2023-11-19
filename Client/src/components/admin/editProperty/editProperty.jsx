@@ -8,7 +8,7 @@ import { Formik, Field, Form, ErrorMessage, FieldArray } from "formik";
 import { editProperty } from "../../../redux/actions";
 import Dropzone from "react-dropzone";
 import Switch from "react-switch";
-import Success from "Client/src/components/admin/editProperty/modals/Success.jsx"
+import Success from './modals/Success.jsx'
 import ModalError from './modals/ModalError.jsx';
 import Loading from './modals/Loading.jsx';
 
