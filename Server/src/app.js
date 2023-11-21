@@ -28,6 +28,7 @@ const corsOptions = {
 	allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept', // Solo permite estos encabezados
 	credentials: true, // Permite enviar cookies
 	optionsSuccessStatus: 204,
+	exposedHeaders: 'Access-Control-Allow-Credentials',
 };
 
 
@@ -38,7 +39,9 @@ server.use(bodyParser.json({ limit: '50mb' }));
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
+
 server.use((req, res, next) => {
+	console.log('Cabeceras de la solicitud:', req.headers);
 	console.log('Cookies que llegan:', req.cookies);
 	next(); // Continúa con la ejecución de la solicitud
 });
@@ -49,7 +52,7 @@ server.use(
 		secret: 'inmuebles', // ESTA CADENA SE UTILIZA PARA FIRMAR COOKIES Y DEBE MANTENERSE EN SECRETO
 		resave: false, // ESTA OPCION DETERMINA SI LA SESION SE DEBE VOLVER A GUARDAR EN EL ALMACEN DE SESIONES INCLUSO SI NO HA HABIDO CAMBIOS DURANTE LA SOLICITUD (FALSE)
 		saveUninitialized: false, // ESTA OPCION DETERMINA SI LA SESION SE DEBE VOLVER A GUARDAR INCLUSO SI NO HA SIDO MODIFICADA DUARNTE LA SOLICITUD, SE GUARDA EN EL SERVIDOR (TRUE)
-		cookie: { secure: false,
+		cookie: { secure: true,
 				
 		}, // ESTA OPCION TE PERMITE CONFIGURAR LAS PROPIEDADES DE LAS COOKIES DE SESION. SI ESTA EN FALSE SE PUEDEN ENVIAR DE CONEXIONES NO SEGURAS EN PRODUCCION SE SETEA EN (TRUE)
 		logErrors: true,
