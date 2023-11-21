@@ -4,7 +4,7 @@ const getAllUsers = async () => {
 
 	try {
 		const allUsers = await Users.find().lean();
-		console.log(allUsers)
+		// console.log(allUsers)
 	if (allUsers) {
 		return allUsers;
 	} else {

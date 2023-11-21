@@ -61,7 +61,7 @@ const getPropertyByIdHandler = async (req, res) => {
 		const property = await detailingProperty(id);
 		res.status(200).json(property);
 	} catch (error) {
-		console.log("soy el error", error.message);
+		// console.log("soy el error", error.message);
 		return res.status(500).json({ error: error.message });
 	}
 };

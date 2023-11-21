@@ -12,7 +12,7 @@ const editingProperty = async (propertyForEdit) => {
 			},
 			{ new: true }
 		);
-		console.log("property Edited", propertyEdited);
+		// console.log("property Edited", propertyEdited);
 		return propertyEdited;
 	} catch (error) {
 		throw new Error("Error updating database");

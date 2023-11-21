@@ -1,7 +1,7 @@
 const User = require("../models/user");
 
 const editUser = async (user) => {
-    console.log("soyusercontroller",user)
+    // console.log("soyusercontroller",user)
   try {
     // Realiza la actualización de los datos del usuario
     const userEdited = await User.findOneAndUpdate(

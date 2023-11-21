@@ -44,7 +44,7 @@ const createUserHandler = async (req, res) => {
       active:true,
       role:"user"
     };
-    console.log("Recibida solicitud para crear usuario:", user);
+    // console.log("Recibida solicitud para crear usuario:", user);
     if (
       email /* &&
       password &&
@@ -118,8 +118,8 @@ const editUserHandler = async (req, res) => {
       createdAt,
       __v,
     };
-    console.log("soysaveeeehandler", savedProperties);
-    console.log("soyuserhandler", user);
+    // console.log("soysaveeeehandler", savedProperties);
+    // console.log("soyuserhandler", user);
     const userEdited = await editUser(user);
     console.log("soyuserEditedxd", userEdited);
     return res.status(200).json(userEdited);

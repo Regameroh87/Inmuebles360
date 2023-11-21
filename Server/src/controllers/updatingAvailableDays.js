@@ -12,10 +12,10 @@ const updateAvailableDays = async (id, availableDays) => {
 			throw new Error("Property days could not be updated");
 		}
 
-		console.log("Updated Property:", updatedProperty);
+		// console.log("Updated Property:", updatedProperty);
 		return updatedProperty;
 	} catch (error) {
-		console.error("Error at editing properties days:", error);
+		// console.error("Error at editing properties days:", error);
 		throw error;
 	}
 };
