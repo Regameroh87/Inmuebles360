@@ -59,7 +59,7 @@ export default function Home() {
   useEffect(() => {
     dispatch(getAllUsers());
   }, [dispatch]);
-  
+
   useEffect(() => {
     axios
       .get("auth/user", { withCredentials: true })
@@ -72,6 +72,7 @@ export default function Home() {
         }
       })
       .catch((error) => {
+        console.log(error)
         dispatch(errorType(error.message));
       });
   }, []);
