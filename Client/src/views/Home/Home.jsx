@@ -50,18 +50,9 @@ export default function Home() {
   };
 
   // -----------------------------------------------------
-
-  useEffect(() => {
-    dispatch(getProperty());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(getAllUsers());
-  }, [dispatch]);
-
   useEffect(() => {
     axios
-      .get("auth/user", { withCredentials: true })
+      .get("https://inmuebles360-production-025b.up.railway.app/auth/user", { withCredentials: true })
       .then((response) => {
         const user = response.data.user;
         
@@ -73,6 +64,15 @@ export default function Home() {
         dispatch(errorType(error.message));
       });
   }, []);
+
+  useEffect(() => {
+    dispatch(getProperty());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getAllUsers());
+  }, [dispatch]);
+
 
 
 
