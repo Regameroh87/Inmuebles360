@@ -72,7 +72,7 @@ passport.deserializeUser(async (_id, done) => {
 			console.log('Usuario no encontrado.');
 			return done(null, false);
 		}
-		console.log('Usuario deserializado:', user);
+		console.log('Usuario deserializado:', user.email);
 		return done(null, user);
 	} catch (err) {
 		console.log('error en la deserializacion');

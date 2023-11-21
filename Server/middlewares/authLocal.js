@@ -35,7 +35,7 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => {
-	console.log('Serializando usuario:', user);
+	console.log('Serializando usuario:', user.email);
 	return done(null, user._id);
 });
 
@@ -47,7 +47,7 @@ passport.deserializeUser(async (_id, done) => {
 			console.log('Usuario no encontrado.');
 			return done(null, false);
 		}
-		console.log('Usuario deserializado:', user);
+		console.log('Usuario deserializado:', user.email);
 		return done(null, user);
 	} catch (err) {
 		console.log('error en la deserializacion');
