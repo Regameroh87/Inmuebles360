@@ -31,7 +31,7 @@ export default function Login() {
   };
 
   const handleGoogle = () => {
-    window.location.href = "http://localhost:3001/auth/google";
+    window.location.href = "https://inmuebles360-production-025b.up.railway.app/auth/google";
   }
 
   useEffect(()=> {
