@@ -9,7 +9,7 @@ passport.use("auth-google",
   new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://inmuebles360.vercel.app/auth/google/callback",
+    callbackURL: "https://inmuebles360-production-025b.up.railway.app/auth/google/callback",
     passReqToCallback:true
   },
   async function (req, accessToken, refreshToken, profile, done) {
@@ -27,7 +27,7 @@ let user = await Users.findOne({ email:profile.emails[0].value});
 
 if (!user) {
   user = await Users.create(userGoogle);
-  await axios.post("https://inmuebles360.vercel.app/mail/login", { email:userGoogle.email })
+  await axios.post("https://inmuebles360-production-025b.up.railway.app/mail/login", { email:userGoogle.email })
 }
 
 if (user.active === false) {
