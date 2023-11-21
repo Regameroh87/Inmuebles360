@@ -31,8 +31,7 @@ authRouter.get("/google/callback", passport.authenticate("auth-google", {
 }), (req, res) => {
   console.log("La autenticación tuvo éxito");
   console.log("Usuario autenticado:", req.user.email);
-  res.status(200).json(req.user)
-  // res.redirect("https://inmuebles-360.vercel.app");
+  res.redirect("https://inmuebles-360.vercel.app");
 });
 
 authRouter.get("/user", ensureAuthenticated, (req,res) => {
