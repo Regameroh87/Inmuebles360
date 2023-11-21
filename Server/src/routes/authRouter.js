@@ -27,11 +27,11 @@ authRouter.post("/login", (req, res, next) => {
 authRouter.get("/google", passport.authenticate("auth-google", {scope:['profile','email']}))
 
 authRouter.get("/google/callback", passport.authenticate("auth-google", {
-  failureRedirect: "http://localhost:3000/login"
+  failureRedirect: "https://inmuebles360.vercel.app/login"
 }), (req, res) => {
   console.log("La autenticación tuvo éxito");
   console.log("Usuario autenticado:", req.user);
-  res.redirect("http://localhost:3000");
+  res.redirect("https://inmuebles360.vercel.app");
 });
 
 authRouter.get("/user", ensureAuthenticated, (req,res) => {
