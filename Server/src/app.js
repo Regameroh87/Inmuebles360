@@ -60,7 +60,7 @@ server.use(passport.initialize());
 server.use(passport.session());
 
 passport.serializeUser((user, done) => {
-	console.log('Serializando usuario:', user);
+	console.log('Serializando usuario:', user.email);
 	return done(null, user._id);
 });
 
