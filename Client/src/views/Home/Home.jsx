@@ -50,22 +50,7 @@ export default function Home() {
   };
 
   // -----------------------------------------------------
-  useEffect(() => {
-    axios
-      .get("auth/user", { withCredentials: true })
-      .then((response) => {
-        const user = response.data.user;
-        console.log(response)
-        console.log(user)
-        
-        if (user) {
-          dispatch(userAuthenticated(user));
-        }
-      })
-      .catch((error) => {
-        dispatch(errorType(error.message));
-      });
-  }, []);
+
 
   useEffect(() => {
     dispatch(getProperty());
@@ -74,6 +59,22 @@ export default function Home() {
   useEffect(() => {
     dispatch(getAllUsers());
   }, [dispatch]);
+  
+  useEffect(() => {
+    axios
+      .get("auth/user", { withCredentials: true })
+      .then((response) => {
+        const user = response.data.user;
+        console.log(response)
+        console.log(user)
+        if (user) {
+          dispatch(userAuthenticated(user));
+        }
+      })
+      .catch((error) => {
+        dispatch(errorType(error.message));
+      });
+  }, []);
 
 
 
