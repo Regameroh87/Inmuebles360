@@ -94,7 +94,7 @@ server.post('/api/checkout', async (req, res) => {
 			description: '',
 			payment_method: id,
 			confirm: true,
-			return_url:  "https://inmuebles360.vercel.app/",
+			return_url:  "https://inmuebles-360.vercel.app/",
 		});
 
 		res.status(200).send();
