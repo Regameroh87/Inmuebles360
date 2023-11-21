@@ -34,12 +34,12 @@ if (user.active === false) {
   done(null, false)
 }
 
-console.log("soy userRegister", user)
+// console.log("soy userRegister", user)
 done(null, user)
 
 
 } catch (error) {
-  console.log(error)
+  // console.log(error)
   done(error, null)
 }
 
@@ -52,7 +52,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser(async (_id, done) => {
-	console.log('Deserializando usuario por ID:', _id);
+	// console.log('Deserializando usuario por ID:', _id);
 	try {
 		const user = await Users.findById(_id);
 		if (!user) {
