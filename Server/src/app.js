@@ -42,7 +42,7 @@ server.use(cookieParser());
 server.use(morgan('dev'));
 
 server.use((req, res, next) => {
-	console.log('Cabeceras de la solicitud:', req.headers);
+	// console.log('Cabeceras de la solicitud:', req.headers);
 	console.log('Cookies que llegan:', req.cookies);
 	next(); // Continúa con la ejecución de la solicitud
 });

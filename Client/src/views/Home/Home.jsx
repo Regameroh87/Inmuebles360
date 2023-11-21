@@ -55,6 +55,8 @@ export default function Home() {
       .get("auth/user", { withCredentials: true })
       .then((response) => {
         const user = response.data.user;
+        console.log(response)
+        console.log(user)
         
         if (user) {
           dispatch(userAuthenticated(user));
