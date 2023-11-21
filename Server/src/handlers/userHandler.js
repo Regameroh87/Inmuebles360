@@ -71,7 +71,7 @@ const createUserHandler = async (req, res) => {
 const getAllUsersHandlers = async (req, res) => {
   try {
     const allUsers = await getAllUsers();
-    console.log("soy allusers", allUsers);
+    // console.log("soy allusers", allUsers);
     if (allUsers) {
       return res.status(200).json(allUsers);
     }

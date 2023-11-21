@@ -22,7 +22,7 @@ try {
     role:"user",
     active:true
 }
-console.log("soy user de google", userGoogle)
+// console.log("soy user de google", userGoogle)
 let user = await Users.findOne({ email:profile.emails[0].value});
 
 if (!user) {
