@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const routes = require('./routes/index');
 require('./scheduled tasks/sendEmailAtTheEndOfTheReservation.js')
 const Stripe = require('stripe');
+const MongoStore = require('connect-mongo');
 
 const stripe = new Stripe(process.env.API_KEY_STRIPE); 
 
@@ -52,9 +53,13 @@ server.use(
 		secret: 'inmuebles', // ESTA CADENA SE UTILIZA PARA FIRMAR COOKIES Y DEBE MANTENERSE EN SECRETO
 		resave: false, // ESTA OPCION DETERMINA SI LA SESION SE DEBE VOLVER A GUARDAR EN EL ALMACEN DE SESIONES INCLUSO SI NO HA HABIDO CAMBIOS DURANTE LA SOLICITUD (FALSE)
 		saveUninitialized: false, // ESTA OPCION DETERMINA SI LA SESION SE DEBE VOLVER A GUARDAR INCLUSO SI NO HA SIDO MODIFICADA DUARNTE LA SOLICITUD, SE GUARDA EN EL SERVIDOR (TRUE)
-		cookie: { secure: true,
-				
-		}, // ESTA OPCION TE PERMITE CONFIGURAR LAS PROPIEDADES DE LAS COOKIES DE SESION. SI ESTA EN FALSE SE PUEDEN ENVIAR DE CONEXIONES NO SEGURAS EN PRODUCCION SE SETEA EN (TRUE)
+		store: MongoStore.create({
+			mongoUrl: process.env.MONGODB_URI,
+			ttl: 14 * 24 * 60 * 60, // tiempo de vida de la sesión en segundos (14 días)
+		  }),
+		cookie: { 
+			secure: true,			
+		}, 
 		logErrors: true,
 	})
 );
