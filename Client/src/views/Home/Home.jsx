@@ -62,7 +62,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("auth/user", { withCredentials: true })
+      .get("auth/user")
       .then((response) => {
         const user = response.data.user;
         console.log(user)
