@@ -27,7 +27,8 @@ import axios from 'axios';
 import About from './components/About/About';
 
 axios.defaults.baseURL = 'https://inmuebles360-production-025b.up.railway.app/';
-// axios.defaults.baseURL = "https://inmobiliaria360.up.railway.app";
+axios.defaults.withCredentials = true;
+
 
 function App() {
 	const location = useLocation();
