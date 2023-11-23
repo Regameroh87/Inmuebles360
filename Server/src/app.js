@@ -57,9 +57,11 @@ server.use(
 			mongoUrl: process.env.MONGODB_URI,
 			ttl: 14 * 24 * 60 * 60, // tiempo de vida de la sesión en segundos (14 días)
 		  }),
-		cookie: { 
-			secure: true,			
-		}, 
+		  cookie: { 
+			secure: true,
+			httpOnly: true,
+			sameSite: 'none',
+		  }, 
 		logErrors: true,
 	})
 );
