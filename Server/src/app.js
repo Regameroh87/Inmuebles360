@@ -45,7 +45,7 @@ server.use(morgan('dev'));
 
 server.use((req, res, next) => {
 	console.log('Cabeceras de la solicitud:', req.headers);
-	console.log('Cookies que llegan:', req.cookies);
+	console.log('Cookies que llegan:', req.cookies._vercel_jwt);
 	next(); // Continúa con la ejecución de la solicitud
 });
 
