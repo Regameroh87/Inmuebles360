@@ -62,8 +62,8 @@ server.use(
 			maxAge: 24 * 60 * 60 * 1000, // Duración de la cookie en milisegundos (1 día en este ejemplo)
 			secure: true,
 			httpOnly: true,
-			sameSite: 'none',
-			domain: null,
+			sameSite: 'lax',
+			domain: "https://inmuebles-360.vercel.app",
 		  },
 		logErrors: true,
 	})
