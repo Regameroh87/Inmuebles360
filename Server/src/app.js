@@ -50,22 +50,22 @@ server.use((req, res, next) => {
 //CONFIG DE EXPRESS-SESSION
 server.use(
 	session({
-		secret: 'inmuebles', // ESTA CADENA SE UTILIZA PARA FIRMAR COOKIES Y DEBE MANTENERSE EN SECRETO
-		resave: false, // ESTA OPCION DETERMINA SI LA SESION SE DEBE VOLVER A GUARDAR EN EL ALMACEN DE SESIONES INCLUSO SI NO HA HABIDO CAMBIOS DURANTE LA SOLICITUD (FALSE)
-		saveUninitialized: false, // ESTA OPCION DETERMINA SI LA SESION SE DEBE VOLVER A GUARDAR INCLUSO SI NO HA SIDO MODIFICADA DUARNTE LA SOLICITUD, SE GUARDA EN EL SERVIDOR (TRUE)
+		secret: 'inmuebles', 
+		resave: false, 
+		saveUninitialized: false,
 		store: MongoStore.create({
 			mongoUrl: process.env.MONGODB_URI,
 		  }),
 		  cookie: { 
 			secure: true,
 			httpOnly: true,
-			sameSite: 'none',
+			sameSite: 'None',
 			domain: '.up.railway.app'
 		  }, 
 		logErrors: true,
 	})
 );
-// MIDDLEWARE DE PASSPORT
+
 server.use(passport.initialize());
 server.use(passport.session());
 
