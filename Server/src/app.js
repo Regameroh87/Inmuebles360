@@ -30,19 +30,21 @@ const corsOptions = {
 	credentials: true, // Permite enviar cookies
 	optionsSuccessStatus: 204,
 	exposedHeaders: 'Access-Control-Allow-Credentials',
+	
 };
 
 
 
 server.use(express.json());
 server.use(cors(corsOptions));
+server.options('*', cors(corsOptions));
 server.use(bodyParser.json({ limit: '50mb' }));
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
 
 server.use((req, res, next) => {
-	// console.log('Cabeceras de la solicitud:', req.headers);
+	console.log('Cabeceras de la solicitud:', req.headers);
 	console.log('Cookies que llegan:', req.cookies);
 	next(); // Continúa con la ejecución de la solicitud
 });
