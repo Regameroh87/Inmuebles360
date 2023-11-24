@@ -60,6 +60,7 @@ server.use(
 			secure: true,
 			httpOnly: true,
 			sameSite: 'none',
+			domain: '.up.railway.app'
 		  }, 
 		logErrors: true,
 	})
