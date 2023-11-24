@@ -55,7 +55,6 @@ server.use(
 		saveUninitialized: false, // ESTA OPCION DETERMINA SI LA SESION SE DEBE VOLVER A GUARDAR INCLUSO SI NO HA SIDO MODIFICADA DUARNTE LA SOLICITUD, SE GUARDA EN EL SERVIDOR (TRUE)
 		store: MongoStore.create({
 			mongoUrl: process.env.MONGODB_URI,
-			ttl: 14 * 24 * 60 * 60, // tiempo de vida de la sesión en segundos (14 días)
 		  }),
 		  cookie: { 
 			secure: true,
