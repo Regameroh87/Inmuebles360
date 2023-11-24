@@ -58,12 +58,13 @@ server.use(
 		store: MongoStore.create({
 			mongoUrl: process.env.MONGODB_URI,
 		  }),
-		  cookie: { 
+		  cookie: {
+			maxAge: 24 * 60 * 60 * 1000, // Duración de la cookie en milisegundos (1 día en este ejemplo)
 			secure: true,
 			httpOnly: true,
 			sameSite: 'none',
-			domain: null
-		  }, 
+			domain: null,
+		  },
 		logErrors: true,
 	})
 );
