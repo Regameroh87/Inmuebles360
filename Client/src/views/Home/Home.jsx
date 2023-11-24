@@ -62,7 +62,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("https://inmuebles360-production-025b.up.railway.app/auth/user", { withCredentials: true })
+      .get("auth/user", { withCredentials: true })
       .then((response) => {
         const user = response.data.user;
         console.log(user)

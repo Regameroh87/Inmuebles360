@@ -59,7 +59,7 @@ server.use(
 		  cookie: { 
 			secure: true,
 			httpOnly: true,
-			sameSite: 'None',
+			sameSite: 'none',
 			domain: null
 		  }, 
 		logErrors: true,
