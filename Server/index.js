@@ -13,7 +13,7 @@ const startServer = async () => {
     }
   
     server.listen(PORT, () => {
-      console.log(`Listening at ${PORT}`);
+      console.log("Listening at production");
     });
   };
   
