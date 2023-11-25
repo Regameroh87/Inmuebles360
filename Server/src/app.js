@@ -24,7 +24,8 @@ const storage = multer.memoryStorage(); // Almacenamiento en memoria (puedes cam
 const server = express();
 
 const corsOptions = {
-	origin: "https://inmuebles-360.vercel.app",  // Permite solicitudes desde este origen
+	// origin: "https://inmuebles-360.vercel.app"
+	origin: '*',
 	methods: 'GET, POST, OPTIONS, PUT, DELETE',
 	allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept', // Solo permite estos encabezados
 	credentials: true, // Permite enviar cookies
