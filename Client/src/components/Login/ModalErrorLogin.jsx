@@ -2,7 +2,7 @@ import React from 'react';
 import error from '../../assets/img/error.png';
 
 export default function ModalError({ message, setShowModalError }) {
-  console.log('soy el msj', message);
+  //console.log('soy el msj', message);
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
