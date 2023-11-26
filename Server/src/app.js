@@ -47,7 +47,7 @@ server.use(morgan('dev'));
 server.use((req, res, next) => {
 	// console.log('Cabeceras de la solicitud:', req.headers);
 	console.log('Cookies que llegan:', req.cookies._vercel_jwt);
-	next(); // Continúa con la ejecución de la solicitud
+	next(); 
 });
 
 //CONFIG DE EXPRESS-SESSION
@@ -60,11 +60,11 @@ server.use(
 			mongoUrl: process.env.MONGODB_URI,
 		  }),
 		  cookie: {
-			maxAge: 24 * 60 * 60 * 1000, // Duración de la cookie en milisegundos (1 día en este ejemplo)
+			maxAge: 24 * 60 * 60 * 1000,
 			secure: true,
 			httpOnly: true,
 			sameSite: 'None',
-			domain: "inmuebles-360.vercel.app",
+			domain: ".vercel.app",
 		  },
 		logErrors: true,
 	})

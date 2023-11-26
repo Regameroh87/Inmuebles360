@@ -46,23 +46,23 @@ done(null, user)
   }
 ));
 
-passport.serializeUser((user, done) => {
-	console.log('Serializando usuario:', user.email);
-	return done(null, user._id);
-});
+// passport.serializeUser((user, done) => {
+// 	console.log('Serializando usuario:', user.email);
+// 	return done(null, user._id);
+// });
 
-passport.deserializeUser(async (_id, done) => {
-	// console.log('Deserializando usuario por ID:', _id);
-	try {
-		const user = await Users.findById(_id);
-		if (!user) {
-			console.log('Usuario no encontrado.');
-			return done(null, false);
-		}
-		console.log('Usuario deserializado:', user.email);
-		return done(null, user);
-	} catch (err) {
-		console.log('error en la deserializacion');
-		return done(err, null);
-	}
-});
+// passport.deserializeUser(async (_id, done) => {
+// 	// console.log('Deserializando usuario por ID:', _id);
+// 	try {
+// 		const user = await Users.findById(_id);
+// 		if (!user) {
+// 			console.log('Usuario no encontrado.');
+// 			return done(null, false);
+// 		}
+// 		console.log('Usuario deserializado:', user.email);
+// 		return done(null, user);
+// 	} catch (err) {
+// 		console.log('error en la deserializacion');
+// 		return done(err, null);
+// 	}
+// });
