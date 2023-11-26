@@ -44,11 +44,7 @@ server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
 
-server.use((req, res, next) => {
-	// console.log('Cabeceras de la solicitud:', req.headers);
-	console.log('Cookies que llegan:', req.cookies._vercel_jwt);
-	next(); 
-});
+
 
 //CONFIG DE EXPRESS-SESSION
 server.use(
@@ -64,11 +60,17 @@ server.use(
 			secure: true,
 			httpOnly: true,
 			sameSite: 'None',
-			domain: ".vercel.app",
+			domain: "inmuebles-360.vercel.app",
 		  },
 		logErrors: true,
 	})
 );
+
+server.use((req, res, next) => {
+	// console.log('Cabeceras de la solicitud:', req.headers);
+	console.log('Cookies que llegan:', req.cookies);
+	next(); 
+});
 
 server.use(passport.initialize());
 server.use(passport.session());
