@@ -9,14 +9,15 @@ require('./scheduled tasks/sendEmailAtTheEndOfTheReservation.js')
 const Stripe = require('stripe');
 const MongoStore = require('connect-mongo');
 
-const stripe = new Stripe(process.env.API_KEY_STRIPE); 
 
-const passport = require('passport'); //La biblioteca de autenticación para Node.js.
+const passport = require('passport');
 require('../middlewares/authLocal');
 require('../middlewares/google');
 const Users = require('../src/models/user');
 const flash = require('connect-flash');
 const session = require('express-session');
+
+const stripe = new Stripe(process.env.API_KEY_STRIPE); 
 
 const multer = require('multer');
 const storage = multer.memoryStorage(); // Almacenamiento en memoria (puedes cambiarlo para guardar en disco si lo prefieres)
@@ -44,7 +45,7 @@ server.use(cookieParser());
 server.use(morgan('dev'));
 
 server.use((req, res, next) => {
-	console.log('Cabeceras de la solicitud:', req.headers);
+	// console.log('Cabeceras de la solicitud:', req.headers);
 	console.log('Cookies que llegan:', req.cookies._vercel_jwt);
 	next(); // Continúa con la ejecución de la solicitud
 });
@@ -62,8 +63,8 @@ server.use(
 			maxAge: 24 * 60 * 60 * 1000, // Duración de la cookie en milisegundos (1 día en este ejemplo)
 			secure: true,
 			httpOnly: true,
-			sameSite: 'lax',
-			domain: "https://inmuebles-360.vercel.app",
+			sameSite: 'None',
+			domain: "inmuebles-360.vercel.app",
 		  },
 		logErrors: true,
 	})
